@@ -1,0 +1,65 @@
+* {
+margin: 0;
+padding: 0;
+}
+:root{
+    --cell-size:100px;
+}
+
+body{
+    display: grid;
+    grid-template-rows: 150px auto;
+    justify-content: center;
+    background-color: whitesmoke;
+}
+.header{
+    align-self: center;
+    font-size: 5rem;
+    font-weight: 900;
+    text-shadow: 2px 2px gray;
+}
+.container{
+    justify-self: center;
+    margin-top: 60px;
+}
+
+/* Gameboard grid */
+.grid{
+    display: grid;
+
+    grid-template-columns: repeat(3, var(--cell-size));
+    justify-items: center;
+}
+.grid-cell{
+    width: var(--cell-size);
+    height: var(--cell-size);;
+    border: 3px solid black;
+}
+.grid-cell:first-child, .grid-cell:nth-child(2),.grid-cell:nth-child(3){
+    border-top: none;
+}
+.grid-cell:nth-child(3n+1){
+    border-left: none;
+}
+.grid-cell:nth-child(3n+3){
+    border-right: none;
+}
+.grid-cell:last-child, .grid-cell:nth-child(7),.grid-cell:nth-child(8){
+    border-bottom: none;
+}
+/* Apply background img according to mark */
+.x-mark{
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-image: url(images/x-img.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.o-mark{
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-image: url(images/o-img.svg);
+    background-size: 94%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
