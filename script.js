@@ -18,13 +18,13 @@ const gameboard = (() => {
     boardCells.forEach(cell => {
         cell.addEventListener('click', e => {
             let cell =e.target;
-            if(pl1.turn == true){
+            if(pl1.turn == true && !cell.classList.contains('o-mark')){
                 cell.classList.add('x-mark');  // add class to div to add mark
                 pl1.cellsMarked.push(e.target.id);  // add the cell "number" to cellsMarked arr
                 pl1.turn = false;  // Switch players turn
                 pl2.turn = true;
             }
-            else if(pl2.turn == true){
+            else if(pl2.turn == true && !cell.classList.contains('x-mark')){
                 cell.classList.add('o-mark');  // add class to div to add mark
                 pl2.cellsMarked.push(e.target.id);  // add the cell "number" to cellsMarked arr
                 pl1.turn = true;  // Switch players turn
