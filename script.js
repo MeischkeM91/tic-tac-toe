@@ -17,7 +17,19 @@ const gameboard = (() => {
     boardCells.forEach(cell => {
         cell.addEventListener('click', e => {
             let cell =e.target;
-            cell.classList.add('x-mark');
+            if(pl1.turn == true){
+                cell.classList.add('x-mark');
+                pl1.cellsMarked.push(e.target.id);
+                pl1.turn = false;
+                pl2.turn = true;
+            }
+            else if(pl2.turn == true){
+                cell.classList.add('o-mark');
+                pl2.cellsMarked.push(e.target.id);
+                pl1.turn = true;
+                pl2.turn = false;
+            }
+
         })
     });
         
