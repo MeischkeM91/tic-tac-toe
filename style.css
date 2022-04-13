@@ -54,6 +54,7 @@ body{
     background-image: url(images/x-img.svg);
     background-size: 100%;
     background-repeat: no-repeat;
+    cursor: not-allowed;
 }
 .o-mark{
     width: var(--cell-size);
@@ -62,4 +63,5 @@ body{
     background-size: 94%;
     background-repeat: no-repeat;
     background-position: 50%;
+    cursor: not-allowed;
 }
