@@ -12,6 +12,9 @@ const pl2 = Player('Player 2', 'O', false);
 
 // Array for the Grid
 const boardCells = document.querySelectorAll('.grid-cell');
+// Manip results-display with DOM
+const resultsDisplay = document.querySelector('.results-display');
+const winVerbiage = document.querySelector('.win-verbiage');
 
 // Gameboard object holds gameboard in arr and handles the gameflow
 const gameboard = (() => {
@@ -29,7 +32,7 @@ const gameboard = (() => {
                 cell.classList.add(xClass);  // add class to div to add mark
                 pl1.cellsMarked.push(e.target.id);  // add the cell "number" to cellsMarked arr
                 if (checkWin(xClass)){
-                    console.log('x win');
+                    displayWin(pl1.name);
                 }
                 else if(!checkWin(xClass) && turns==8){
                     console.log('tie')
@@ -43,7 +46,7 @@ const gameboard = (() => {
                 cell.classList.add(oClass);  // add class to div to add mark
                 pl2.cellsMarked.push(e.target.id);  // add the cell "number" to cellsMarked arr
                 if (checkWin(oClass)){
-                    console.log('o win');
+                    displayWin(pl2.name);
                 }
                 else if(!checkWin(oClass) && turns==9){
                     console.log('tie')
@@ -68,7 +71,6 @@ const winCombinations =[
     [2,4,6]
 ]
 
-
 function checkWin(mark){
     return winCombinations.some(comb => {
         return comb.every(ind =>{
@@ -77,3 +79,7 @@ function checkWin(mark){
     })
 };
 
+const displayWin = (name) =>{
+    resultsDisplay.style.display = 'flex';
+    winVerbiage.innerText = `${name} is the Winner!`;
+}
