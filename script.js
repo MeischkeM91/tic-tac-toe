@@ -35,7 +35,7 @@ const gameboard = (() => {
                     displayWin(pl1.name);
                 }
                 else if(!checkWin(xClass) && turns==8){
-                    console.log('tie')
+                    displayTie();
                 }
                 turns++;
                 console.log(turns);
@@ -49,7 +49,7 @@ const gameboard = (() => {
                     displayWin(pl2.name);
                 }
                 else if(!checkWin(oClass) && turns==9){
-                    console.log('tie')
+                    displayTie();
                 }
                 turns++;
                 console.log(turns);
@@ -82,4 +82,9 @@ function checkWin(mark){
 const displayWin = (name) =>{
     resultsDisplay.style.display = 'flex';
     winVerbiage.innerText = `${name} is the Winner!`;
+}
+
+const displayTie = () =>{
+    resultsDisplay.style.display = 'flex';
+    winVerbiage.innerText = `It's a Tie! How Lame.`;
 }
