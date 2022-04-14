@@ -19,6 +19,7 @@ const gameboard = (() => {
     const xClass = 'x-mark';
     const oClass = 'o-mark';
     let board = [];
+    let turns = 0;
 
     // Add click event for each cell
     boardCells.forEach(cell => {
@@ -30,6 +31,11 @@ const gameboard = (() => {
                 if (checkWin(xClass)){
                     console.log('x win');
                 }
+                else if(!checkWin(xClass) && turns==8){
+                    console.log('tie')
+                }
+                turns++;
+                console.log(turns);
                 pl1.turn = false;  // Switch players turn
                 pl2.turn = true;
             }
@@ -39,6 +45,11 @@ const gameboard = (() => {
                 if (checkWin(oClass)){
                     console.log('o win');
                 }
+                else if(!checkWin(oClass) && turns==9){
+                    console.log('tie')
+                }
+                turns++;
+                console.log(turns);
                 pl1.turn = true;  // Switch players turn
                 pl2.turn = false;
             }
