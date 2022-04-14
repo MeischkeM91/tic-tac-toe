@@ -22,11 +22,15 @@ body{
     justify-self: center;
     margin-top: 60px;
 }
-
+.rules{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.6rem;
+    font-weight: 900;
+}
 /* Gameboard grid */
 .grid{
     display: grid;
-
     grid-template-columns: repeat(3, var(--cell-size));
     justify-items: center;
 }
